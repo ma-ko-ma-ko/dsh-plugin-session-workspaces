@@ -1,0 +1,49 @@
+{
+  "name": "dsh-plugin-session-workspaces",
+  "description": "Per-session output folders for DeepSeek Harness: every file a session writes lands in one folder inside the workspace, named after the session title, so concurrent sessions never scatter or overwrite each other's artifacts.",
+  "version": "0.1.0",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "workspace",
+    "session",
+    "output-folder"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./config": "./lib/config.js",
+    "./fs-facade": "./lib/fs-facade.js",
+    "./naming": "./lib/naming.js",
+    "./paths": "./lib/paths.js",
+    "./registry": "./lib/registry.js",
+    "./session-paths": "./lib/session-paths.js",
+    "./shell-facade": "./lib/shell-facade.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node test/naming.test.js && node test/paths.test.js && node test/registry.test.js && node test/session-paths.test.js && node test/fs-facade.test.js && node test/shell-facade.test.js && node test/config.test.js",
+    "test:profile": "node scripts/verify-profile.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  }
+}

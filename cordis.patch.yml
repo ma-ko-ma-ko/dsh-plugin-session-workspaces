@@ -1,0 +1,29 @@
+# Copy these rows into the patch layer of the profile that should mount this
+# plugin — `$DSH_HOME/profiles/<your-profile>/cordis.patch.yml`.
+#
+# A patch entry targets an existing row by `id`, so a new plugin is added through
+# an `insert` list. The bare insert below is a complete, working configuration.
+#
+# The plugin has no runtime dependencies and is reached either by package name
+# (when it is installed into the profile's `node_modules`) or by the absolute
+# path of its entry module, which is what a checkout beside the workspace uses.
+- insert:
+    - id: session-workspaces
+      name: dsh-plugin-session-workspaces
+      # name: 'F:\dsh测试\dsh-plugin-session-workspaces\lib\index.js'
+      config:
+        # enabled: true
+        # Assignment registry. Defaults to `$DSH_HOME/session-workspaces.json`;
+        # a relative value resolves beside this profile.
+        # file: ./session-workspaces.json
+        # UTF-8 byte budget for one folder name.
+        # maxNameBytes: 64
+        # Let a read of a path that exists only in the workspace root fall back
+        # to the root, so earlier conversations' artifacts stay readable.
+        # readFallback: true
+        # Run a shell command whose working directory is the workspace root from
+        # the session folder instead.
+        # shellWorkdir: true
+        # Tell the model, in the runtime context, where this session writes.
+        # prompt: true
+        # promptOrder: 111
